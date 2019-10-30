@@ -63,7 +63,7 @@ for curDir, dirs, files in os.walk("./temp"):
             addRow = pd.DataFrame([cp_num, saved_time, win, loss, draw], index=df.columns).T
             df = df.append(addRow)
 
-# print()
-# print(df)
+print()
+print(df)
 df = df.sort_values('saved_time')
 df.to_csv('./temp.csv', index=False)
