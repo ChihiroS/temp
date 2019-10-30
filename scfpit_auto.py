@@ -25,6 +25,11 @@ for curDir, dirs, files in os.walk("./temp"):
             # cp_num = cp_num.replace(".h5", "")
             cp_num = cp_num.replace(".pth.tar", "")
 
+            # compA = "checkpoint_" + str(cp_num) + ".h5"
+            compA = "checkpoint_" + str(cp_num) + ".pth.tar"
+            if (not compA == f):
+                continue
+
             state = os.stat('./temp/{}'.format(fName))
             saved_time = datetime.fromtimestamp(state.st_mtime)
             
@@ -60,5 +65,5 @@ for curDir, dirs, files in os.walk("./temp"):
 
 # print()
 # print(df)
-# df = df.sort_values('checkpoint')
+df = df.sort_values('saved_time')
 df.to_csv('./temp.csv', index=False)
