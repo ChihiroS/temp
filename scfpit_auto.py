@@ -12,8 +12,10 @@ import re
 from datetime import datetime
 
 df = pd.DataFrame(columns = ['checkpoint', 'saved_time', 'win', 'loss', 'draw'])
+i = 1
 for curDir, dirs, files in os.walk("./temp"):
     for f in files:
+        print("{} 回目！！！".format(i))
         # filename = re.findall('checkpoint_.*.h5', f)
         filename = re.findall('checkpoint_.*.pth.tar', f)
 
@@ -62,6 +64,7 @@ for curDir, dirs, files in os.walk("./temp"):
 
             addRow = pd.DataFrame([cp_num, saved_time, win, loss, draw], index=df.columns).T
             df = df.append(addRow)
+            i += 1
 
 print()
 print(df)
