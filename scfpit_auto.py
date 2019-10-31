@@ -60,9 +60,9 @@ for curDir, dirs, files in os.walk("./temp"):
             result = arena.playGames(numGames, verbose=True)
             print()
             print('(Awin, Bwin, draw)=', result)
-            (win, loss, draw) = result
+            (win, lose, draw) = result
 
-            addRow = pd.DataFrame([cp_num, saved_time, win, loss, draw], index=df.columns).T
+            addRow = pd.DataFrame([cp_num, saved_time, win, lose, draw], index=df.columns).T
             df = df.append(addRow)
             i += 1
 
