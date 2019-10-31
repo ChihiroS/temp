@@ -11,7 +11,7 @@ import pandas as pd
 import re
 from datetime import datetime
 
-df = pd.DataFrame(columns = ['checkpoint', 'saved_time', 'win', 'loss', 'draw'])
+df = pd.DataFrame(columns = ['checkpoint', 'saved_time', 'win', 'lose', 'draw'])
 i = 1
 for curDir, dirs, files in os.walk("./temp"):
     for f in files:
